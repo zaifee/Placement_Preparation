@@ -1,0 +1,65 @@
+// Brute force 
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+//User function Template for C++
+
+class Solution{
+    public:
+    // n: input to count the number of set bits
+    //Function to return sum of count of set bits in the integers from 1 to n.
+//   This is the Brute force approach 
+
+
+
+    int func(int n){
+        int count = 0;
+        while(n){
+            if(n & 1 == 1) count++;
+            n = n>>1;
+        }   
+        return count;
+    }
+    int countSetBits(int n)
+    {
+        int count1 = 0;
+        
+        for(int i=1; i<=n; i++){
+            count1 = count1+func(i);
+        }
+        
+        return count1;
+    }
+};    // gives TLE
+
+/// Optimised approached
+
+class Solution{
+    public:
+    // n: input to count the number of set bits
+    //Function to return sum of count of set bits in the integers from 1 to n.
+      int largestof2inrange(int n){
+          int x = 0;
+          while((1<<x) <= n){
+              x++;
+          }
+          return x-1;
+      }
+
+    int countSetBits(int n)
+    {
+        if(n == 0){
+            return 0;
+        }
+        int x = largestof2inrange(n);
+        int btill2x = x * (1 << (x-1));
+        int msbtill2xton = n - (1 << x) + 1;
+        int resBit =  n - (1 << x);
+        int ans = btill2x + msbtill2xton + countSetBits(resBit);
+        return ans;
+    }
+};
+
+
