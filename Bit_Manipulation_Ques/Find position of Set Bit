@@ -1,0 +1,27 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution {
+  public:
+    int findPosition(int N) {
+        if(N == 0){
+            return -1;
+        }
+        int cnt = 0;
+        /*
+        checking (N & (N-1)) == 0 if it is equal to zero then it is
+        power of 2 otherwise not if this we will incr the count and 
+        right shift it
+        */
+        if((N>0) && (N & (N-1))== 0){
+            while(N){
+                cnt++;
+                N = N>>1;
+            }
+            return cnt;
+        }
+        return -1;
+    }
+};
