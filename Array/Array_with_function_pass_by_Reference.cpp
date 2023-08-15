@@ -9,7 +9,7 @@ void printArray(int arr[], int size){
     cout << endl;
 }
 void inc(int arr[], int size){
-    arr[0] = arr[0]+10;
+    arr[0] = arr[0]+10;   //marking mistake when we are tyring to change the index then change the index by mentioning the index no.
     printArray(arr, size);
 }
 
