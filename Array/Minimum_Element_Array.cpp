@@ -3,7 +3,7 @@
 #include<limits.h>
 
 using namespace std;
-// Maximum Element in the array
+// Minimum Element in the array
 int main()
 {
     int arr[]= {4, 5, 7, 9 , 10, 12, -5};
